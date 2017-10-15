@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta=charset="UTF-8" />
+	<title>Ovulation Calculator</title>
+	<link rel="stylesheet"  type="text/css" href="ovulation_calculator.css" />
+	
+</head>
+<body>
+	<div id="container">
+		<div id="content">
+			<P>ENTER DATE OF PREVIOUS MENSTRUATION <input type="date" id="previous_period" class="date" /></P>
+			
+			<P>ENTER DATE OF CURRENT MENSTRUATION <input type="date" id="current_period" class="date" /></P>
+		</div>
+		
+		<p><button id="button" onclick="ovulationCalculator()">CONTINUE</button></p>
+			
+		 
+			<section id="section1">
+				<P class="paragraph">YOUR MENSTRUAL CYCLE IS <span id="mCycle"></span><br />
+				<span class="definitions">(The menstrual cycle is the time from the first day of a woman's period to the day before her next period)</span></P>
+				
+				<P class="paragraph">YOU LAST OVULATED ON DAY <span id="ovulation_day"></span> OF YOUR CYCLE EQUIVALENT TO <input type="date" id="last_ovulation" class="date" />
+				<br /><span class="definitions">(Ovulation is the release of egg(s) by the ovaries into the fallopian tube to be fertilized by sperm)</span></P>
+				
+				YOUR OVULATION WINDOW WAS FROM <input type="date" id="ovulation_window1" class="date" /> TO <input type="date" id="ovulation_window2" class="date" />
+				<br /><span class="definitions">(Ovulation window or fertile window refers to the most fertile days in your menstrual cycle which gives you the highest chance of conceiving)</span></P>
+			</section>
+			<section id="section2">
+				<p class="paragraph">YOUR NEXT MENSTRUATION IS ON <input type="date" id="next_mens" class="date" /></p>
+				
+				<P class="paragraph">YOUR NEXT OVULATION IS ON <input type="date" id="next_ovulation" class="date" /></P>
+				
+				<P class="paragraph">OVULATION WINDOW WILL BE BETWEEN <input type="date" id="ovulation_window3" class="date" /> AND <input type="date" id="ovulation_window4" class="date" />
+				<br /><span class="definitions">(Ovulation window or fertile window refers to the most fertile days in your menstrual cycle which gives you the highest chance of conceiving)</span></P>
+				
+				<p>SAFE PERIODS ARE <input type="date" id="safe_period1" class="date" /> TO <input type="date" id="safe_period2" class="date" />
+				AND <input type="date" id="safe_period3" class="date" /> TO <input type="date" id="safe_period4" class="date" /></span>
+				<br /><span class="definitions">(Safe periods are times in which conceiving is not possible)</span></p>
+			</section>
+		 
+	</div>
+	
+		
+	<script>
+			
+	function ovulationCalculator() {
+			var previuosMens = document.getElementById('previous_period').value; //date of previous menstruation
+			var currentMens = document.getElementById('current_period').value; //date of current menstruation
+			
+			document.getElementById('last_ovulation').value = currentMens; // date of ovulation between previous menstruation and the current one
+			document.getElementById('next_mens').value = currentMens; //value of next menstruation afeter the last one
+			document.getElementById('next_ovulation').value = currentMens; //value of next ovulation after the last one
+			document.getElementById('ovulation_window1').value = currentMens; //ovulation window btw the last mentruation and the current one
+			document.getElementById('ovulation_window2').value = currentMens; //ovulation window btw the last mentruation and the current one
+			document.getElementById('ovulation_window3').value = currentMens; //ovulation window btw the current mentruation and the next one
+			document.getElementById('ovulation_window4').value = currentMens; //ovulation window btw the current mentruation and the next one
+			document.getElementById('safe_period1').value = currentMens; 
+			document.getElementById('safe_period2').value = currentMens;
+			document.getElementById('safe_period3').value = currentMens;
+			document.getElementById('safe_period4').value = currentMens;
+									
+			var date1 = new Date(previuosMens);
+			var previous_date = date1.getTime();
+			var date2 = new Date(currentMens);
+			var current_date = date2.getTime();
+						
+			var date_diff = (current_date - previous_date);
+			var seconds = (date_diff / 1000);
+			var minutes = (seconds / 60);
+			var hours = (minutes / 60);
+			var days = (hours / 24);
+			
+		document.getElementById('mCycle').innerHTML = days + " DAYS ";
+		document.getElementById('ovulation_day').innerHTML = (days - 14); // day of ovulation between previous menstruation and the last one
+		document.getElementById('last_ovulation').stepDown(14); // date of ovulation between previous menstruation and the last one
+		document.getElementById('next_mens').stepUp(days); //date of next menstruation afeter the last one
+		document.getElementById('next_ovulation').stepUp(days - 14); //date of next ovulation after the last one
+		document.getElementById('ovulation_window1').stepDown(18); 
+		document.getElementById('ovulation_window2').stepDown(14);
+		document.getElementById('ovulation_window3').stepUp(days - 18);
+		document.getElementById('ovulation_window4').stepUp(days - 14);
+		document.getElementById('safe_period1').value = currentMens;
+		document.getElementById('safe_period2').stepUp(9);
+		document.getElementById('safe_period3').stepUp(15);
+		document.getElementById('safe_period4').stepUp(37);
+		
+	}
+	
+	
+	</script>
+</body>
+</html>

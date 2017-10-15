@@ -1,0 +1,93 @@
+*{
+	border: 0 0;
+	padding: 0 0;
+	box-sizing: border-box;
+	/*background-color: grey;*/
+	word-spacing: 5px;
+}
+#container{
+	width: 75%;
+	margin: auto;
+	border: thin solid grey;
+	text-align: left;
+	font-family: verdana;
+	font-size: 13px;
+	position: relative;
+	/*line-height: 40px;*/
+}
+
+#content{
+	width:100%;
+	position: relative;
+	/*margin-left: auto;*/
+	line-height: 40px;
+	text-align: center;
+}
+	
+#content2{
+	position: relative;
+	background-color: grey;
+}
+
+
+#button{
+	position: relative;
+	margin-top: 4%;
+	margin-bottom: 4%;
+	left: 40%;
+	width: 150px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#mCycle{
+	font-size: 2em;
+	font-weight: bolder;
+}
+
+#ovulation_day{
+	font-size: 2em;
+	font-weight: bolder;
+}
+
+#safe_period{
+	position: relative;
+	left: 21.5%;
+}
+
+#and{
+	position: relative;
+	text-align: center;
+	line-height: 5px;
+}
+
+#section1{
+	background-color: grey;
+	position: relative;
+	overflow: hidden;
+	padding-left: 3%;
+}
+
+#section2{
+	background-color: orange;
+	position: relative;
+	overflow: hidden;
+	padding-left: 3%;
+}
+
+.date{
+	font-weight: bold;
+	text-align: center;
+	color: grey;
+}
+
+.definitions{
+	font-size: .9em;
+	position: relative;
+	margin-top: 2px;
+	color: purple;
+}
+
+.paragraph{
+	margin-bottom: 5%;
+}
